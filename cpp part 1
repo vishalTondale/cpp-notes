@@ -1,0 +1,2169 @@
+/******************************************************************************
+
+   Author : Tondale Vishal R.
+   Subject : module 3 
+   Discription : fundamentals of object oriented programming language  (c++)
+   Platform : internshala
+
+*******************************************************************************/
+
+
+/*  
+               TOPICS TO COVER IN THESE MODULE 
+               
+    1. getting started with C++
+    
+    2. migrating from C to C++
+    
+    3. class and objects 
+    
+    4. constructors and distructors
+    
+    5.  inheritance
+    
+    6. access specifires
+    
+    7. polymorphism
+    
+    8. Abstract class 
+    
+    9. Friend class and friend function
+    
+    10. miscellaneous concepts
+    
+    
+*/
+
+ 
+        //                  1.    getting started with C++ 
+        
+ /*             HISTORY OF C++
+ 
+    > c++ is devoloped by Bjarne Stroustrup at Bell Labs, New Jersey
+    
+    > first name of C++ language is "C with classes" and was firstly implemented i 1979.
+    
+    > then "C with classes" was renamed to "C++" in 1983 becouse he added some new concept.
+    
+    > the '++' in C++ is the increment operator
+    
+    
+    
+    
+                 DIFFERENCE BETWEEN  C AND C++
+                 
+          C LANGUAGE                                                   C++ LANGUAGE   
+
+  >                                                         > all features in c is present in C++
+  
+  > 
+   
+
+*/
+
+
+/*                           structure of c++ LANGUAGE
+     
+     same documentation section as c language      <  documentation section
+     
+     #include<iostream>                           <  link section 
+     
+     double area(float);                          <  globle declaration section
+     
+     int main() {                                 < the main() function 
+         // our code to call area() function...
+         
+         return 0;                                <  program body  
+         
+     }
+     
+     double area(float radious) {
+         
+         return 3.14 * radious * radious;          < subprogram section
+     }
+
+*/
+
+
+// creating first project in C++
+
+/*
+
+#include<iostream>     // input output stream 
+using namespace std;
+int main()
+{   
+    std::cout << "!! hello world !!" << std::endl;     // without using using namespace "<<" represents insertion operator.
+    cout << "!! hello world !!" << endl;          // by  using namespace at starting we dont need to use in code
+    cout << "!! hello world !!" << endl << "!! hello world !!" << endl; // we can write above two lines in single line 
+    return 0;
+}
+
+
+
+// code challenge to ptint name and age 
+
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    cout << " My name is vishal." << endl << " I am 21 years old." << endl;
+    
+    return 0;
+    
+}
+
+*/
+
+
+//#####################################################################################################################
+
+                             //   2.  migrating from C to  C++.
+           
+//##################################################################################################################### 
+
+    
+    
+     // 1] variables and data types in C++    
+     
+     
+
+/* 
+
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+int main()
+{
+    string name = "farm house";
+    char size = 'M';
+    int personItServes = 4 ;
+    float retailPrice = 345.56;
+    
+    cout << name << endl;
+    cout << size   << endl;
+    cout << personItServes << endl;
+    cout << retailPrice << endl;
+    
+    cout<<"Yay! you have orderd a "<< name <<" pizza of size "<< size <<" that serves "<<personItServes<<"."
+        <<" please pay RS. "<<retailPrice<<" to the delivary person.";
+        
+    
+    return 0;
+}
+
+*/
+
+// code challenge 
+/*
+
+#include<iostream>
+#include<string>
+
+using namespace std;
+ 
+int main()
+{
+    string country = "India";
+    char rs = '$';
+    float amount = 2.2;
+    int year = 2015;
+    
+    cout<<" As economic reforms picked up the pace, "<<country<<"'s"<<" GDP grew five-foldto reach US"<<rs
+        <<amount<<" trillion in "<<year<<" (as per IMF estimtes).";
+        
+        return 0;
+}
+
+*/
+
+
+// user input 
+
+/*
+
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+int main()
+{
+    string name;
+    char size;
+    int personItServes;
+    float retailPrice;
+
+    cout<<"enter name : ";
+    getline(cin,name);     // cin>>name  <== it takes only word upto blank space 
+    
+    cout<<"enter size : ";
+    cin>>size;
+    
+    cout<<"enter number of person it serves : ";
+    cin>>personItServes;
+    
+    cout<<"enter retail price : ";
+    cin>>retailPrice;
+    
+        cout<<"Yay! you have orderd a "<< name <<" pizza of size "<< size <<" that serves "<<personItServes<<"."
+        <<" please pay RS. "<<retailPrice<<" to the delivary person.";
+    
+    return 0;
+}
+
+
+*/
+
+//############################################################################################################################
+
+//      strings in c++ 
+
+
+/*
+
+
+#include<iostream>
+#include<string.h>
+
+using namespace std;
+
+string getFullName(string , string);
+
+
+int main()
+{
+   // string defination
+   string firstName = "vishal";
+   string lastName = "Tondale";
+   
+   // passing string as a parameter and getting a string as the return value
+   string fullName = getFullName(firstName,lastName);
+   
+   // accessing a character 
+    char letter = firstName[0];
+    
+    // user input.
+    string nickName;
+    cout<<"enter nick name:";
+    getline(cin, nickName);
+    
+    // length(): return the length of the string 
+    int length = firstName.length();
+    
+    // compare(): compares two strings lexicographically
+    int result = firstName.compare(lastName);
+    
+    // append(): adds two characters(strings) at the end of another string object.
+    string appendOut = firstName.append(lastName);
+    
+    //modify the value
+    firstName = "rahul";
+    
+    // array of string 
+    string names[3] = {"vishal","datta","shubham"};
+    
+    cout<<fullName<<endl<<letter<<endl<<nickName<<endl<<length<<endl<<result<<endl
+    <<appendOut<<endl<<firstName<<endl<<names[0]<<endl<<names[1]<<endl<<names[2]<<endl;
+    
+    return 0;
+    
+  
+}
+
+string getFullName(string firstName, string lastName)
+{
+    string fullName = firstName + " " + lastName;
+    return fullName;
+}
+
+
+
+
+
+
+
+*/
+
+
+
+
+//   boolean values (true or false ) in c++
+
+/*
+
+#include<iostream>
+#include<string>
+
+using namespace std ;
+
+int main()
+{
+    // boolean values : true or false   ( we get output as 0 or 1)
+//    int isCodingEasy = 0;    //we can use this form also
+    bool isCodingEasy = false;   // bool take 1 byte of memory
+    if(isCodingEasy)
+     cout<<"lets code more";
+    else
+    cout<<"we have to practice ";
+    
+    return 0;
+}
+
+
+*/
+
+
+
+
+
+//   default parameter  in c++
+/*
+
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+void display(int, float num2 = 4.8, string massage = "welcome !");
+
+int main()
+{
+    //function default parameters
+    display(2, 4.8, "welcome ! ");
+    
+    return 0;
+}
+
+void display(int num1,float num2, string massage)
+{
+    cout<<"num1 : "<<num1<<endl<<"num2 : "<<num2<<endl<<"massage : "<<massage<<endl;
+    
+}
+
+
+
+
+*/
+
+//#########################################################################################################################
+
+
+//    function overloading (with function overloading, multiple functions can have
+//      the same name as long as the number and/or type of parameter are different)
+
+/*
+
+
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+void add(int,int);
+void add(string,string);
+void add(int,int,int);
+
+int main()
+{
+    add(10,20);
+    add("vishal","Tondale");
+    add(50,50,50);
+    
+    return 0;
+}
+
+void add (int num1, int num2)
+{
+    cout<<num1 + num2<<endl;
+}
+
+void add (string str1, string str2)
+{
+    cout<<str1 + " " + str2<<endl;
+}
+
+void add (int num1, int num2, int num3)
+{
+    cout<<num1 + num2 + num3<<endl;
+}
+
+
+
+
+*/
+
+//#######################################################################################################################
+
+
+
+/*
+  class and object
+  
+     class dog                          dogobject1              dogobject2
+   
+  breed       bark()                dalmatian                     beagle
+  age        sleep()                  5                            7
+ colour     eat()                  white-black                  brown-black
+ 
+ 
+ class : a class is a blueprint that defines the variables(s) and the methods(s) 
+         commen to all entities of certain kind.
+         
+         
+ object : object is a real world entities that has state and  behavior.
+ 
+ state = data stored in variable(s)
+ 
+
+// function = method
+
+
+*/
+/*
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+class Employee                  // class defination
+{
+  
+  public :                         // access specifire
+        int id;                    // attributes or data member
+        string firstName;          // attributes or data member
+        string lastName;           // attributes or data member
+    
+};
+
+int main()
+{
+    // creat an object of employee class 
+    
+    Employee emp1,emp2;
+    
+    //access atributes and set values
+    emp1.id = 1;
+    emp1.firstName = "vishal";
+    emp1.lastName = "Tondale";
+    
+    // print attribute value 
+    
+    cout<<"ID : "<<emp1.id<<endl<<"NAME : "<<emp1.firstName<<" "<<emp1.lastName<<endl;
+    
+    //access atributes and set values
+    emp2.id = 2;
+    emp2.firstName = "sachin";
+    emp2.lastName = "Tondale";
+    
+    // print attribute value 
+    
+    cout<<"ID : "<<emp2.id<<endl<<"NAME : "<<emp2.firstName<<" "<<emp2.lastName<<endl;
+    
+    
+    return 0;
+}
+
+
+
+*/
+
+
+/*
+
+// defining methods(another name for functions) in a class.
+
+ways to define methods :
+
+1 . inside the class : 
+2. outside the class :
+
+*/
+
+
+/*
+
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+class Employee                  // class defination
+{
+  
+  public :                         // access specifire
+        int id;                    // attributes or data member
+        string firstName;          // attributes or data member
+        string lastName;           // attributes or data member
+        
+        // method(function) defination inside the class 
+        string getFullName()
+        {
+            return firstName + " " + lastName;
+        }
+        
+        void displayDetails();  // method/function declaration
+    
+};
+
+void Employee::displayDetails()   // defining function outside the class (:: <- scope resolution operator)
+{
+      cout<<"ID : "<<id<<endl<<"NAME : "<<getFullName()<<endl; 
+}
+
+
+int main()
+{
+    // creat an object of employee class 
+    
+    Employee emp1,emp2;
+    
+    //access atributes and set values
+    emp1.id = 1;
+    emp1.firstName = "vishal";
+    emp1.lastName = "Tondale";
+    // method(function) declaration 
+//    string fullName1 = emp1.getFullName();
+     
+    
+    // print attribute value 
+    emp1.displayDetails();
+    
+//   cout<<"ID : "<<emp1.id<<endl<<"NAME : "<<fullName1<<endl;
+//            or 
+//    cout<<"ID : "<<emp1.id<<endl<<"NAME : "<<emp1.getFullName()<<endl;
+    
+    //access atributes and set values
+    emp2.id = 2;
+    emp2.firstName = "sachin";
+    emp2.lastName = "Tondale";
+        // method(function) declaration 
+//    string fullName2 = emp2.getFullName();
+    
+    // print attribute value 
+        emp2.displayDetails();
+ 
+//   cout<<"ID : "<<emp1.id<<endl<<"NAME : "<<fullName1<<endl;
+//            or 
+//    cout<<"ID : "<<emp2.id<<endl<<"NAME : "<<emp2.getFullName<<endl;
+    
+    
+    return 0;
+}
+
+
+
+
+
+
+
+
+// code challenge
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+class Dog
+{
+    
+    
+  public :    
+    int age;
+    string colour;
+    string breed;
+    string petName;
+    
+    void dogInfo();
+    
+};
+
+
+void Dog::dogInfo()
+{
+   cout<<"age : "<<age<<endl<<"colour : "<<colour<<endl<<"breed : "<<breed<<endl<<"pet name : "<<petName<<"\n\n\n";
+}
+
+
+int main()
+{
+   Dog dog1,dog2;
+   
+   dog1.age = 5;
+   dog1.colour = "Black";
+   dog1.breed = "General";
+   dog1.petName = "Bhalu";
+   
+   dog1.dogInfo();
+   
+   
+ 
+   dog2.age = 7;
+   dog2.colour = "Brown";
+   dog2.breed = "Dont Know";
+   dog2.petName = "Moti";
+   
+   dog2.dogInfo();  
+   
+}
+
+
+
+*/
+
+
+//##########################################################################################################################
+
+                               // constructors and distructors
+
+//####################################################################################################################
+/* constructors :  it are used to create objects 
+     - constructor is a special method in a class which is automtically executed when an object is created.
+     - name of the constructor is always same  as that of its class 
+     
+   types of constructor : - dafault constructor (does not contain any parameter)
+                          - parameterised constructor
+                          - copy constructor
+     
+*/
+
+
+/*
+
+                    //    default constructor 
+
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+class Employee                  // class defination
+{
+  
+  public :                         // access specifire
+        int id;                    // attributes or data member
+        string firstName;          // attributes or data member
+        string lastName;           // attributes or data member
+       
+    
+//       Employee()    // constructor defination inside the class
+//       {
+//         cout<<"constructor"<<endl; 
+//       }
+
+        Employee();
+
+}; 
+
+Employee :: Employee()     // constructor defination outside the class(mention inside class is compulsary)
+{
+               cout<<"constructor"<<endl; 
+}
+
+
+int main()
+{
+
+    Employee emp1;
+
+    emp1.id = 1;
+    emp1.firstName = "vishal";
+    emp1.lastName = "Tondale";
+    
+
+    cout<<"ID : "<<emp1.id<<endl<<"NAME : "<<emp1.firstName<<" "<<emp1.lastName<<endl;
+
+    Employee emp2;
+    emp2.id = 2;
+    emp2.firstName = "sachin";
+    emp2.lastName = "Tondale";
+    
+
+    cout<<"ID : "<<emp2.id<<endl<<"NAME : "<<emp2.firstName<<" "<<emp2.lastName<<endl;
+    
+    
+    return 0;
+}
+
+
+// code challenge 
+
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+class Dog
+{
+    
+    
+  public :    
+    int age;
+    string colour;
+    string breed;
+    string petName;
+    
+    Dog();
+    
+    void dogInfo();
+    
+};
+
+Dog :: Dog()
+{
+    cout<<"constructor created for  dog "<<endl;
+}
+
+void Dog::dogInfo()
+{
+   cout<<"age : "<<age<<endl<<"colour : "<<colour<<endl<<"breed : "<<breed<<endl<<"pet name : "<<petName<<"\n\n\n";
+}
+
+
+int main()
+{
+   Dog dog1;
+   
+   dog1.age = 5;
+   dog1.colour = "Black";
+   dog1.breed = "General";
+   dog1.petName = "Bhalu";
+   
+   dog1.dogInfo();
+   
+   Dog dog2;  
+ 
+   dog2.age = 7;
+   dog2.colour = "Brown";
+   dog2.breed = "Dont Know";
+   dog2.petName = "Moti";
+   
+   dog2.dogInfo();  
+   
+}
+
+
+*/
+
+
+                     // parameterized constructors
+/*                     
+                     
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+class Employee                 
+{
+  
+  public :                         
+        int id;                    
+        string firstName;          
+        string lastName;
+        
+        string fullName()
+        {
+            return firstName + " " + lastName;
+        }
+        
+      void employeeDetail();
+      
+//      Employee(int id, string firstName , string lastName)  // parameterizes constructor inside class
+//      {
+//          this-> id = id;
+//          this-> firstName = firstName;
+//          this-> lastName = lastName;
+//      }
+       Employee(int,string,string);
+    
+
+};
+
+      
+Employee :: Employee(int id, string firstName , string lastName)  // parameterizes constructor outside class
+      {
+          this-> id = id;
+          this-> firstName = firstName;
+          this-> lastName = lastName;
+      }
+      
+
+//Employee :: Employee(int id, string firstName, string lastName); 
+
+void Employee :: employeeDetail()
+      {
+          cout<<"id : "<<id<<endl<<"full name : "<<fullName()<<endl;
+      }
+
+int main()
+{
+    
+    
+    Employee emp1(1,"vishal","tondale");
+    
+    emp1.employeeDetail();
+
+
+    Employee emp2(2,"sachin","tondale");
+
+    emp2.employeeDetail();
+
+
+    
+    return 0;
+}
+
+
+
+
+// code challenge 
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+class Dog 
+{
+  public :    
+    int age;
+    string breed;
+    string name;
+    string colour;
+    
+    Dog(int, string, string, string);
+    
+    void DogInfo();
+    
+};
+
+Dog :: Dog(int age, string breed, string name, string colour)
+{
+    this-> age = age;
+    this-> breed = breed;
+    this-> name = name;
+    this-> colour = colour;
+}
+
+void Dog :: DogInfo()
+{
+    cout<<"age : "<<age<<endl<<"breed : "<<breed<<endl<<"name : "<<name<<endl<<"colour : "<<colour<<endl;
+}
+
+int main()
+{
+    
+    
+    Dog dog1(5,"general","bhalu","black");
+    
+    dog1.DogInfo();
+    
+    Dog dog2(7,"general","moti","white");
+    
+    dog1.DogInfo();
+    
+}
+
+
+
+*/
+
+                            // copy constructors
+/*
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+
+class Employee
+{
+    public:
+    
+    int id;
+    string firstName;
+    string lastName;
+    
+    Employee(int, string, string);
+    
+    string fullName()
+    {
+       return firstName + " " + lastName;
+    }
+    
+    
+    void showDetail();
+    
+};
+
+Employee :: Employee(int id, string firstName, string lastName)
+{
+    this-> id = id;
+    this-> firstName = firstName;
+    this-> lastName = lastName;
+}
+
+void Employee :: showDetail()
+{
+    cout<<"id : "<<id<<endl<<"name : "<<fullName()<<endl;
+}
+
+int main()
+{
+    
+    Employee emp1(2,"vishal","Tondale");
+    
+    emp1.showDetail();
+    
+    Employee emp2 = emp1;      // copy constructor
+    emp2.firstName = "sachin";
+    
+    emp2.showDetail();
+
+    return 0;
+    
+}
+
+
+
+*/
+
+       //   distructor : operation is exactly opposite to constructor (to clear the objects)
+
+
+/*
+
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+class Dog 
+{
+  public :    
+    int age;
+    string breed;
+    string name;
+    string colour;
+    
+    Dog(int, string, string, string);
+    ~Dog();                           // distructor declaration
+    
+    void DogInfo();
+    
+};
+
+
+Dog :: ~Dog()                               // distructor defination 
+{ 
+    cout<<"\n"<<this->age<<"age has been deleted \n";
+}
+
+
+Dog :: Dog(int age, string breed, string name, string colour)
+{
+    this-> age = age;
+    this-> breed = breed;
+    this-> name = name;
+    this-> colour = colour;
+}
+
+
+void Dog :: DogInfo()
+{
+    cout<<"dog info \n\n"<<"age : "<<age<<endl<<"breed : "<<breed<<endl<<"name : "<<name<<endl<<"colour : "<<colour<<endl;
+}
+
+
+
+int main()
+{
+    
+    
+    Dog dog1(5,"general","bhalu","black");
+    
+    dog1.DogInfo();
+    
+    Dog dog2(7,"general","moti","white");
+    
+    dog2.DogInfo();
+    
+}
+
+
+*/
+
+
+// ######################################################################################################################
+
+                             // inheritance 
+
+//########################################################################################################################
+/*
+     Inheritance :
+     
+    -> The capability of a class to derive propeties and characteristics from another class is called inheritsnce.
+    -> The class that inherits properties from another class is called child class or derived class or subclass.
+    -> The class whose properties inherits by a subclass is called parent class or base class or superclass.
+    
+    
+*/
+
+
+// implementation of inheritance 
+/*
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+class Animal 
+{
+    public :
+    int age;
+    string colour;
+    
+    void Run()
+    {
+        cout<<"Running\n\n"<<endl;
+    }
+};
+
+class Dog : public Animal
+{
+    public :
+         
+         string petName;
+         
+         void DogDetails();
+         
+         void bark()
+         {
+             cout<<"Barking "<<endl;
+         }
+         
+         
+};
+
+class Lion : public Animal 
+{
+    public : 
+       
+        void LionDetails();
+        
+        void Roar()
+        {
+            cout<<"Roaring "<<endl;
+        }
+        
+};
+
+void Dog :: DogDetails()
+{
+    cout<<"dog detail \nage = "<<age<<"\ncolour = "<<colour<<"\npet name = "<<petName<<endl;
+}
+
+void Lion :: LionDetails() 
+{
+    cout<<"Lion detail \nage = "<<age<<"\ncolour = "<<colour<<endl;
+}
+
+int main()
+{
+    Dog dog;
+    dog.age = 5;
+    dog.colour = "white";
+    dog.petName = "Bhalu";
+    dog.DogDetails();
+    dog.bark();
+    dog.Run();
+    
+    Lion lion;
+    lion.age = 7;
+    lion.colour = "Brown";
+    lion.LionDetails();
+    lion.Roar();
+    lion.Run();
+    return 0; 
+}
+
+
+*/
+
+// code challenge on inhertance 
+
+/*
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+class Details
+{ 
+    public :
+     int age;
+     string fullName;
+     string phoneNumber;
+     
+    
+};
+
+class Student : public Details
+{
+    public :
+    int studentId;
+    string schoolName;
+    
+    void studentDetails();
+    
+    void study()
+    {
+        cout<<" studying ..."<<endl;
+    }
+};
+
+void Student :: studentDetails()
+{
+    cout<<"student details\n"<<"\nstudent id :"<<studentId<<"\nfull Name: "<<fullName<<"\nage : "<<age
+    <<"\nphone number : "<<phoneNumber<<"\nschool Name : "<<schoolName<<endl;
+}
+
+class Employee : public Details
+{
+    public :
+     int EmployeeId;
+     string companyName;
+     
+     void employeeDetail();
+     
+     void work()
+     {
+         cout<<" working...."<<endl;
+     }
+};
+
+void Employee :: employeeDetail()
+{
+    cout<<"\n\nEmployee details\n\n"<<"Employee id :"<<EmployeeId<<"\nfull Name: "<<fullName<<"\nage :"<<age
+    <<"\ncompany Name : "<<companyName<<"\nphone number : "<<phoneNumber<<endl;
+}
+
+
+
+int main()
+{  
+    Student student;
+    student.studentId = 36;
+    student.fullName = "Vishal Tondale";
+    student.age = 21;
+    student.schoolName = " SKNSCOE korti";
+    student.phoneNumber = "9067804781";
+    student.studentDetails();
+    student.study();
+    
+    Employee employee;
+    employee.EmployeeId = 26;
+    employee.fullName = "shubham pawar";
+    employee.age = 20;
+    employee.companyName = " SKNSCOE korti";
+    employee.phoneNumber = "9067804781";
+    employee.employeeDetail();
+    employee.work();
+    
+    
+    return 0;
+    
+}
+
+
+
+*/
+
+
+/*  
+    types of inheritance 
+    
+    1> single inheritance : ( The inheritance where we hav only one superclass and only one subclass )
+    
+    2> multilevel inheritance : (classes are derived from the classes that are already derived )
+    
+    3> hierarchical inheritance : (here we have only one superclass and multiple subclasses )
+    
+    4> multiple inheritance : ( here we have many superclasses but only one subclass )
+    
+    5> hybrid inheritance  : ( it is a mixture of two or more inheritance )
+    
+    
+*/
+
+
+
+
+/*
+
+    advantages of inheritance 
+    
+    1. reduces code redundncy. 
+    2. increase code reusuability.
+    3. saves time and effort as the main code present in the superclass need not be written again.
+
+*/
+
+
+
+// ###########################################################################################################################
+
+                            // access specifires (modifires)
+
+//############################################################################################################################
+/*  
+
+   access specifires (modifires)
+   
+    - access specifires are used to determine whether any other class or function, such as the main function can access the 
+      attributes and methods of a perticular class.
+    - by default, all attributes and methods of a class are implicitly private.
+    - access specifires are also known as access modifires.
+   
+   types :
+    1> public : members (attributes and methods) are accessible from outside the class 
+    
+    2> private : members are not accessible from outside the class 
+    
+    3> protected : members cannot be accessed from outside the class, but they can be accessed in inherited classes.
+    
+    >> private, public and protected are reserved keywords in c++.
+
+*/ 
+
+
+      //   public 
+      
+/*      
+      
+#include<iostream>
+#include<string>
+using namespace std;
+
+class Circle 
+{
+    public :       //Access specifire 
+    float radius;
+    double getArea() 
+    {
+        return 3.14 * radius * radius;
+    }
+};
+
+int main()
+{
+    Circle circle;
+    circle.radius = 5;
+    double area = circle.getArea();   // in public we can access outside the class also. 
+    cout<<"Area of the circle : "<<area<<" square units."<<endl;
+    
+    return 0;
+    
+}
+
+*/
+
+
+                         //   private
+                         
+/*
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+
+class Circle 
+{
+    private :       //  PRIVATE Access specifire 
+    float radius;
+    
+    public :           // PUBLIC Access specifire
+    void setRedius(float radius)
+    {
+        this->radius = radius;
+    }
+    
+    double getArea() 
+    {
+        return 3.14 * radius * radius;
+    }
+};
+
+int main()
+{
+    Circle circle;
+    circle.setRedius(5);
+    double area = circle.getArea();   
+    cout<<"Area of the circle : "<<area<<" square units."<<endl;
+    
+    return 0;
+    
+}
+
+
+*/
+
+
+//###################################################################################################################
+
+   // data hiding , abstraction , and encapsulation
+
+//###################################################################################################################
+
+/*
+
+   data hiding :   data hiding refers to hiding data from the external world.
+   
+   abstraction :   abstraction refers to hiding the implementation (how things are implemented)  detail.
+   
+   encapsulation : encapsulation refer to wrapping up of data and functionalities into a single unit.
+
+*/
+
+/*
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+
+class Circle     // encapsulation. 
+{
+    private :       //  PRIVATE Access specifire   (data hiding)
+    float radius;
+    
+    public :           // PUBLIC Access specifire
+    void setRedius(float radius)
+    {
+        this->radius = radius;
+    }
+    
+    double getArea()                          //  Abstraction (hiding implementation) 
+    {
+        return 3.14 * radius * radius;
+    }
+};
+
+int main()
+{
+    Circle circle;
+    circle.setRedius(5);
+    double area = circle.getArea();   
+    cout<<"Area of the circle : "<<area<<" square units."<<endl;
+    
+    return 0;
+    
+}
+
+
+
+
+*/
+
+
+//                protected access specifire 
+
+/*
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+class person 
+{
+    private :
+     string phoneNumber;
+    
+    public :
+    void setEmpNum(string phoneNumber)
+    {
+        this-> phoneNumber = phoneNumber;
+    }
+    string fullName;
+    void displayDetails();
+};
+
+void person :: displayDetails()
+{
+    cout<<"employee Detail\n"<<"full name :"<<fullName<<"\nphone number : "<<phoneNumber<<endl;
+}
+
+int main()
+{ 
+    person employee;
+    employee.fullName = "vishal Tondale";
+    employee.setEmpNum("+91 9067804781");
+    
+    employee.displayDetails();
+    
+    return 0;
+}
+
+
+*/
+
+
+/* #####################################################################################################################
+
+         polymorphism :  polymorphism is a feature of OOPs that allows the object (function) 
+                        to behave differently in different conditions.
+         
+         -  greek workds = poly + morphs (many forms)
+         
+         types :
+         
+         1.compile time (function overloading) 
+         
+         
+         2. run time (function overriding and vertual function)
+         
+         
+         
+         
+         
+################################################################################################################*/
+
+
+//  function overriding (run time polymorphism) : function overriding is a feature of OOPs that allows
+//                                          us to override a function of parent class in child classes.
+//   - it is also known as method overriding.
+
+/*
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+class Animal
+{
+    public :
+    void sound()
+    {
+        cout<<"Animal class : making sound."<<endl;
+    }
+    void sleep()
+    {
+        cout<<"Animal class : sleeping"<<endl;
+    }
+};
+
+class Dog : public Animal
+{
+    public :
+    void sound()   // function overriding 
+    {
+        cout<<"Dog class : bow-bow"<<endl;
+    }
+    void sleep()  // function overriding
+    {
+        cout<<"dog class : sleeping"<<endl;
+    }
+};
+
+int main()
+{
+    Animal animal;
+    animal.sound();
+    animal.sleep();
+    
+    Dog dog;
+    dog.sound();
+    dog.sleep();
+    
+    return 0;
+}
+
+
+
+
+
+*/
+/* #####################################
+
+ vertual function :
+    -   a vertual finction is a member function within a parent class which is expected to be 
+                   to be overridden in the child classes.
+    - the defination of a virtual function in the parent class is always preceded by the keyword virtual.
+    - the overridde virtual function in the child class is implicity virtual.
+
+#######################################/*
+
+#include<iostream>
+#include<new>
+#include<string>
+using namespace std;
+
+class Animal
+{ 
+    public :
+    virtual void sound()
+    {
+        cout<<"animal class : making sound"<<endl;
+    }
+    virtual void sleep()
+    {
+        cout<<"animal class : sleeping"<<endl;
+    }
+};
+
+class Dog : public Animal
+{
+    public :
+    virtual void sound()
+    {
+        cout<<"class dog : bow-bow"<<endl;
+    }
+    virtual void sleep()
+    {
+        cout<<"class dog : sleeping"<<endl;
+    }
+};
+
+int main()
+{
+    Dog dog;
+    dog.sound();
+    dog.sleep();
+    
+    Animal *animal = new Dog();   // vertual function use
+    animal->sound();
+    animal->sleep();
+    
+    return 0;
+}
+
+*/ 
+
+
+/*######################################################################################################
+
+Abstract class : 
+                 - a class is made absytract by declaring at least one of its function as a pure virtual
+                   function.
+                 - at cannot be instaintiated (cannot creat object of an abstract class).
+                 - it can have normal attributes and methods.
+                 
+    
+concrete class : 
+                - a concrete class is a child class that inherits from an abstract base class.
+                
+                
+
+pure virtual function : 
+              a function marked with a virtual keyword and contains = 0 after its signature 
+       is known as a pure virtual function.
+    - a pure virtual function never contains code (no method body).
+    - a pure virtual functio must be overridden in the child class.
+
+#######################################################################################################*/
+
+/*
+
+#include<iostream>
+#include<new>
+#include<string>
+using namespace std;
+
+class Animal                    // pure virtual class 
+{
+    public :
+    virtual void sound() = 0;     // pure virtual function
+    
+    virtual void sleep()               // normal virtual function
+    {
+        cout<<"animal class : sleeping"<<endl;
+    }
+};
+
+class Dog : public Animal        // concrete class
+{
+    public :
+    virtual void sound()
+    {
+        cout<<"class dog : bow-bow"<<endl;
+    }
+    virtual void sleep()
+    {
+        cout<<"class dog : sleeping"<<endl;
+    }
+};
+
+int main()
+{
+    Dog dog;
+    dog.sound();
+    dog.sleep();
+    
+    Animal *animal = new Dog();
+    animal->sound();
+    animal->sleep();
+    
+    return 0;
+}
+
+*/
+
+
+/*###########################    
+
+   interface : 
+        - an abstract class with only pure virtual functions known as an interface.
+        - all the interfaces are abstract classes but all abstract classes are not interfaces.
+        
+###########################*/
+
+/*
+
+#include<iostream>
+#include<new>
+#include<string>
+using namespace std;
+
+class Animal                    // pure virtual class 
+{
+    public :
+    virtual void sound() = 0;     // pure virtual function
+    
+    virtual void sleep() = 0;    
+  
+};
+
+class Dog : public Animal        // concrete class
+{
+    public :
+    virtual void sound()
+    {
+        cout<<"\nclass dog : bow-bow"<<endl;
+    }
+    virtual void sleep()
+    {
+        cout<<"class dog : sleeping"<<endl;
+    }
+};
+
+class Cat : public Animal        // concrete class
+{
+    public :
+    virtual void sound()
+    {
+        cout<<"\n\nclass cat : mew-mew"<<endl;
+    }
+    virtual void sleep()
+    {
+        cout<<"class dog : sleeping"<<endl;
+    }
+};
+
+
+int main()
+{
+    Dog dog;
+    dog.sound();
+    dog.sleep();
+    
+    Animal *animal = new Dog();
+    animal->sound();
+    animal->sleep();
+    
+    Animal *cat = new Cat();
+    cat->sound();
+    cat->sleep();
+    
+    return 0;
+}
+
+
+
+*/
+
+
+/*
+
+// code challenge 
+
+
+#include<iostream>
+#include<new>
+#include<string>
+using namespace std;
+
+class Shape 
+{
+    public :
+    
+    virtual double getArea() = 0; 
+    
+    virtual double getPerimeter() = 0;
+    
+};
+
+class Square : public Shape
+{
+    public : 
+    float side;
+    
+    virtual double getArea()
+    {
+        return side * side;
+    }
+    virtual double getPerimeter()
+    {
+        return 4 * side;
+    }
+};
+
+class Rectangle : public Shape
+{
+    public :
+    float  length;
+    float breadth;
+    
+    virtual double getArea()
+    {
+        return length * breadth;
+    }
+    virtual double getPerimeter()
+    {
+        return 2 * (length + breadth);
+    }
+};
+
+class Circle : public Shape
+{
+    public :
+    float radius;
+    
+    virtual double getArea()
+    {
+        return 3.14 * radius * radius;
+    }
+    virtual double getPerimeter()
+    {
+        return 2 * 3.14 * radius;
+    }
+};
+
+class Tringle : public Shape
+{
+    public :
+     float base;
+     float height;
+     float side1;
+     float side2;
+     
+     virtual double getArea()
+     {
+         return (base * height) / 2;
+     }
+     virtual double getPerimeter()
+     {
+         return base + side1 + side2;
+     }
+};
+
+int main()
+{
+    Circle circle ;
+    circle.radius = 10;
+    double area = circle.getArea();
+    double perimeter = circle.getPerimeter();
+    
+    cout<<"the area and the perimeter of the circle is "<<area<<"square unit and "<<perimeter<<"units respectively."<<endl;
+    
+    return 0;
+}
+
+
+
+
+*/
+
+
+
+/*#########################################################################################################################
+
+  friend class  :   
+        - a friend class is a class that can access the private and protected members of a class in which 
+            it is declared as a friend.
+        - a friend class is needed when we want to allow a perticuler class to access the private and protected 
+            members of a class. 
+            
+            
+ friend function :
+        - a friend function is a function that can access the private and protected members of a class 
+           in which it is declared as friend.
+  
+########################################################################################################################*/
+
+/*
+
+
+
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+class Employee{
+    private :
+    string phNo;
+    
+    public :
+    string name;
+    
+    void setPhoneNumber(string phoneNumber){
+    this-> phNo = phoneNumber;
+    }
+    
+    friend class Car;
+};
+
+class Car{        // friend class of class employee
+    public :
+    string carName;
+    
+    void display (Employee emp){
+        cout<<"employee name :"<<emp.name<<"\nmo. number"<<emp.phNo<<"\ncar name :"<<carName<<endl;
+    }
+};
+
+int main()
+{
+    Employee employee;
+    employee.setPhoneNumber("9067804781");
+    employee.name = "vishal Tondale";
+    
+    Car car;
+    car.carName = "Tesla";
+    car.display(employee);
+    
+    return 0;
+}
+
+
+*/
+
+// friend function
+
+/*
+
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+class Employee{
+    private :
+    string phNo;
+    
+    public :
+    string name;
+    
+    void setPhoneNumber(string phoneNumber){
+    this-> phNo = phoneNumber;
+    }
+    
+    friend void display(Employee);              // function declaration
+
+    
+};
+
+void display (Employee emp)         // function defination
+{
+        cout<<"employee name :"<<emp.name<<"\nmo. number "<<emp.phNo<<endl;}
+    
+
+int main()
+{
+    Employee employee;
+    employee.setPhoneNumber("9067804781");
+    employee.name = "vishal Tondale";
+    
+    display(employee);
+
+    return 0;
+}
+
+
+*/
+
+/*######################################################################################################
+
+       // miscellaneous concepts 
+       
+######################################################################################################*/
+/*
+// reserved keywords 
+
+ - in c  there are 32 reserved keywords 
+ 
+ - in c++  there were 90+ reserved keywords.
+ 
+ reserved keywords in c++ 
+ 
+  asm, delete, new, float, int, char, string, static, typeid, auto, do, while,for,true,false,operator,
+  static_cast, typename, bool, double, short, long, friend, class, private, public, protected, struct,
+  union, break, dynamic_cast, goto, switch, unsigned, catch, if, else, template, using, namespace, enum,
+  inline, register, this, virtual, explicite, int, return, void, const, export, throw, volatile, continue,
+  extern, mutable, signed, unsigned, try, wchar_t, default, sizeof, typedef, while,
+
+*/
+
+/*
+
+naming conventions
+
+1. camel case    eg.    myAge, myName,..
+2. snake case    eg.   my_age, my_name,....
+3. kabab case    eg.   my-age, my-name,....
+
+4. pascal case   eg    MyName, MyName,.....
+
+*/
+
+
+
+
+
+
+/*  
+   Author : Tondale Vishal R.
+   subject : Assignment on module 3.
+   platform : internshala.
+   
+
+statement : write a c++ program to build a mini cricket application named gully cricket app.
+
+
+*/
+
+#include<iostream>
+#include<new>
+#include<string>
+#include<unistd.h>
+#include<cstdlib>
+using namespace std;
+
+string batsmen;
+string bowler;
+int run,i,j;
+int T1TotalScore;
+int T2TotalScore;
+
+
+class Team
+{
+    public :
+    int score;
+};
+
+class team1 : public Team
+{
+    public : 
+    string teamName = "EAGLE FIGHTER GROUP";
+    string player1 = "Vijay";
+    string player2 = "Suraj";
+    string player3 = "Ganesh";
+    
+    void team1Details();
+};
+
+class team2 : public Team
+{
+    public :
+    string teamName = "EAGLE FIGHTER GROUP";
+    string player1 = "Vishal";
+    string player2 = "Shubham";
+    string player3 = "Datta";
+    
+    void team2Details();
+
+};
+
+void team1 :: team1Details()
+{
+    cout<<"\n\nteam 1 : "<<teamName<<"\nplayers name :\n"<<player1<<endl<<player2<<endl<<player3<<endl<<"\n\n";
+}
+
+void team2 :: team2Details()
+{
+    cout<<"team 2 : "<<teamName<<"\nplayers name :\n"<<player1<<endl<<player2<<endl<<player3<<endl<<"\n\n";
+}
+
+
+int main()
+{
+    printf("###################     welcome to      ##############\n###################     gully cricket    ##############\n\n");
+    
+    team1 T1;
+    T1.team1Details();
+    T1.score = 0;
+    
+    usleep(3000000);
+    
+    team2 T2;
+    T2.team2Details();
+    T2.score = 0;
+    
+    printf("processing....\n");
+    usleep(3000000);
+
+
+  printf("\nfirst enning...\n");
+  usleep(2000000);
+  printf("first over in process....\n\n");
+
+
+
+    
+
+
+  for ( i = 1; i<7; i++)
+   {
+     batsmen = T1.player1;
+     bowler = T2.player2;
+      if (i == 1)
+      {
+        usleep(3000000);
+        cout<<"\nbatsmen : "<<batsmen<<"\nbowler : "<<bowler<<endl<<"\n\n";  
+      }
+      
+      
+         printf("bowl %d ",i);
+         run = rand()%6;
+         usleep(3000000);
+         printf(" runs :%d\n",run);
+         T1.score = T1.score + run;
+         
+   } 
+    
+     cout<<"total score in 1st over = "<<T1.score<<endl;
+     
+     usleep(2000000);
+     
+     printf("second over in process....\n\n");
+    
+
+    
+   for( j = 1;j<7;j++)
+    {
+     batsmen = T1.player2;
+     bowler = T2.player3;
+      if (j == 1)
+      { 
+        usleep(3000000);
+        cout<<"\nbatsmen : "<<batsmen<<"\nbowler : "<<bowler<<endl;        
+      } 
+      
+         printf("bowl %d ",j);
+         run = rand()%6;
+         usleep(3000000);
+         printf(" runs :%d\n",run);
+         T1.score = T1.score + run;
+    }
+        
+    cout<<"total score in 1st enning = "<<T1.score<<endl;
+  
+    T1TotalScore = T1.score;
+    
+    
+  printf("\nsecond  enning...\n");
+  usleep(2000000);
+  printf("first over in process....\n\n");
+
+ 
+  
+  
+ for ( i = 1; i<7; i++)
+   {
+     batsmen = T2.player1;
+     bowler = T1.player2;
+      if (i == 1)
+      {
+        usleep(3000000);
+        cout<<"\nbatsmen : "<<batsmen<<"\nbowler : "<<bowler<<endl<<"\n\n";  
+      }
+      
+      
+         printf("bowl %d ",i);
+         run = rand()%6;
+         usleep(3000000);
+         printf(" runs :%d\n",run);
+         T2.score = T2.score + run;
+         
+   } 
+    
+     cout<<"total score in 1st over = "<<T2.score<<endl;
+     
+     usleep(2000000);
+     
+     printf("second over in process....\n\n");
+    
+
+    
+   for( j = 1;j<7;j++)
+    {
+     batsmen = T2.player2;
+     bowler = T1.player3;
+      if (j == 1)
+      { 
+        usleep(3000000);
+        cout<<"\nbatsmen : "<<batsmen<<"\nbowler : "<<bowler<<endl;        
+      } 
+      
+         printf("bowl %d ",j);
+         run = rand()%6;
+         usleep(3000000);
+         printf(" runs :%d\n",run);
+         T2.score = T2.score + run;
+    }
+    
+    cout<<"total score in 2nd enning = "<<T2.score<<endl;
+  
+    T2TotalScore = T2.score;
+  
+
+  
+ 
+ 
+ if (T1TotalScore > T2TotalScore)
+ {
+     printf("getting result ......\n\n\n");
+     usleep(3000000);
+
+     cout<<"match won by team = "<<T1.teamName<<endl;
+ }
+ else if (T2TotalScore > T1TotalScore)
+ {
+     printf("getting result ......\n\n\n");
+     usleep(3000000);
+
+     cout<<"match won by team = "<<T2.teamName<<endl;
+ }
+ else
+ {
+     printf("getting result ......\n\n\n");
+     usleep(3000000);
+
+     cout<<" match tie ";
+ }
+ 
+ 
+ 
+ return 0;
+
+    
+    
+}
+
+ 
+
