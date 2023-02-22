@@ -1,0 +1,710 @@
+/******************************************************************************
+
+   Author : Tondale Vishal R.
+   Subject : module 4
+   Discription : Diving into c++  programming
+   Platform : internshala
+
+*******************************************************************************/
+
+
+/*  
+               TOPICS TO COVER IN THESE MODULE 
+               
+    1. namespaces
+    
+    2. standerd liabraries
+    
+    3. preprocessor directives 
+    
+    4. exception handling (error handling)
+    
+    5. Debugging (error correction)
+    
+    6. file handling 
+    
+    7. miscellneous concepts
+    
+    
+*/
+
+
+/*##############################################################################
+
+                       NAMESPACES
+                       
+    namespace : The namespace is used as additionl information to differentiate
+               between functions , variables and classes with the same name.
+               
+               - you may use the 'using' directive to avoid using namespace 
+                 variable over and over again.
+
+##############################################################################*/
+
+/*
+#include<iostream>
+using namespace std;     // std is a namespace
+
+namespace myInfo         // myInfo is a namespace
+{
+   long phoneNum =  9067804781;
+   
+}
+
+namespace altInfo
+{
+    long phoneNum = 7057049474;
+    
+}
+
+int main()
+{
+    cout<<"my number : "<<myInfo::phoneNum<<endl;  // we can access like these.
+    
+    cout<<"my alternative number : "<<altInfo::phoneNum<<endl;
+
+    return 0;
+}
+
+
+*/
+
+// creating class inside the namespace and access it in main function
+
+/*
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+namespace country {
+    class District
+    {
+        public :
+        string cityname = "pandharpur";
+        long pincode = 413304;
+    };
+}
+
+
+int main()
+{
+    country::District dist;
+    cout<<"city name : "<<dist.cityname<<endl<<"pin code : "<<dist.pincode<<endl;
+    return 0;
+}
+
+*/
+
+
+
+// using directive  in c++ 
+
+
+/*
+
+#include<iostream>
+using namespace std;     // std is a namespace  /   (using) = directive 
+
+namespace myInfo         // myInfo is a namespace
+{
+   long phoneNum =  9067804781;
+   
+}
+
+namespace altInfo
+{
+    long phoneNum = 7057049474;
+    
+}
+
+using namespace myInfo;    // use of using directive 
+
+int main()
+{
+    cout<<"my number : "<<phoneNum<<endl;  // no need to use myInfo :: 
+    
+    cout<<"my alternative number : "<<altInfo::phoneNum<<endl;
+
+    return 0;
+}
+
+
+*/
+
+
+/*#############################################################################
+
+                    STANDERD LIABRARIES
+    
+    standerd liabrary :
+        - c++ standerd liabrary is a collection of classes and functions tha 
+          are meant to perform specific taskds.
+        - <iostream> : a headerfile to handle input output streams.
+        
+        
+        in c                                 in c++
+    
+ 1.   stdio.h                                iostream
+    
+ 2.   stdlib.h                               cstdlib
+    
+ 3.   time.h                                 ctime
+    
+ 4.   string.h                              string or cstring
+    
+ 5.   unistd.h                             unistd.h
+    
+    
+
+#############################################################################*/
+
+/*############################################
+
+ GETTING RANDOM NUMBER BEETWEEN 0 TO 6
+   
+############################################*/
+/*
+
+#include<iostream>
+#include<cstdlib>
+#include<ctime>
+#include<unistd.h>
+using namespace std;
+
+int main()
+{
+    int randomValue;
+    
+    srand(time(NULL));
+    
+    randomValue = (rand()%7);
+    
+    
+    usleep(500000);
+    
+    printf("%d",randomValue);
+    
+    return 0;
+}
+
+
+*/
+
+/*##############################
+
+   MATH LIABRARY
+
+##############################*/
+
+/*
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+    int x=5,y=10;
+    
+    cout<<"\tlarger number : "<<fmax(x,y)<<endl;
+  
+    cout<<"\tsmaller number : "<<fmin(x,y)<<endl;
+   
+    cout<<"\tdifference   : "<<fdim(x,y)<<endl;
+    
+    cout<<"\tpower number(2^4) : "<<pow(2,4)<<endl;
+   
+    cout<<"\tsquare root of 91 : "<<sqrt(91)<<endl;
+    
+    cout<<"\tround figure of 2.7 : "<<round(2.7)<<endl;
+    
+    cout<<"\tround figure to upper side  (2.4) : "<<ceil(2.4)<<endl;
+    
+    cout<<"\tround figure to lover side (ignoring points) (2.4) : "<<floor(2.4)<<endl;
+
+    cout<<"\tround figure of 2.4 : "<<round(2.4)<<endl;
+    
+    cout<<"\tfinding log log(2) :"<<log(2)<<endl;
+
+    
+    return 0;
+     
+}
+
+
+*/
+
+
+
+/*############################################################################
+
+    VECTOR LIABRARY
+    
+    vectors : vectors are silimar to arrays , but it can chang its size.
+
+#############################################################################*/
+
+/*
+
+#include<iostream>
+#include<string>
+#include<vector>
+
+using namespace std;
+
+class Employee
+{
+    public :
+    string name;
+    int id;
+};
+
+int main()
+{
+  // initializing vector
+  vector<string>names;
+  
+  // adding elments in the vector
+  names.push_back("VISHAL");
+  names.push_back("SHUBHAM");
+  names.push_back("DATTA");
+  
+  // finding size of vector
+  cout<<"size of vector: "<<names.size()<<endl;
+  
+  // accesing the elements from vector
+  cout<<"\nfirst element index (0) : "<<names[0]<<endl;
+  cout<<"second element index (1) : "<<names[1]<<endl;
+  cout<<"third element index (2) : "<<names[2]<<endl;
+
+  
+  
+  // removing element at the end from vector
+  names.pop_back();        // removing DATTA 
+  
+  //after removing element from vector
+  cout<<"\nsize of vector : "<<names.size()<<endl;
+  
+  // modifying the element in vector
+  names[0] = "DATTA";
+  names[2] = "VISHAL";
+  
+  // after modifying elements in vector 
+  cout<<"\nfirst element index (0) : "<<names[0]<<endl;
+  cout<<"second element index (1) : "<<names[1]<<endl;
+  cout<<"third element index (2) : "<<names[2]<<"\n\n\n";
+  
+  
+  // class program
+  
+  Employee emp1,emp2,emp3;
+  emp1.name = "vijay";
+  emp1.id = 34;
+  
+  //we can also get class objects in vector
+  vector<Employee>employeeDetails;
+  
+  // adding information in class objects
+  employeeDetails.push_back(emp1);
+  employeeDetails.push_back(emp2);
+  employeeDetails.push_back(emp3);
+  
+
+
+
+  
+    
+    return 0;
+}
+
+
+*/
+
+
+
+
+/*##############################################################################
+
+                      PREPROCESSOR DIRECTIVES
+
+ preprocessor directives : 
+        - a preprocessor directive tells the compiler to process the source code 
+         before compiling.
+        - all the preprocessor directives start with a '#' symbol
+        
+ 
+ MACRO  :  naming rule 
+      > should be in capital letters 
+      > multiple words join together by underscore
+
+##############################################################################*/
+
+/*#############################################################################
+
+// macro  preprocessor directive
+
+############################################################################*/
+
+
+/*
+
+#include<iostream>
+using namespace std;
+
+#define UPPER_LIMIT 10  // MACRO DEFINATION (NAME = MACRO TEMPLATE) &
+                       //  10 = MACRO  EXPANTION
+#define AREA(r) (3.14 * r * r)   // macro with parameter
+
+int main()
+{
+    for(int i=1;i<=UPPER_LIMIT;i++)
+    {
+        if(i%2==0)
+        {
+            cout<< i <<"\t";
+        }
+    }
+    
+    // finding area of the circle 
+    cout<<"\narea : "<<AREA(5)<<endl;
+    
+    return 0; 
+}
+
+*/
+
+/*
+//  finding area of rectangle using macro 
+
+#include<iostream>
+using namespace std;
+
+#define AREA(l,b) (l * b) 
+
+int main()
+{
+    // finding area of rectangle
+    cout<<"area of rectangle : "<<AREA(5,6)<<endl;
+    
+    return 0;
+}
+
+
+*/
+
+
+/*###########################################################################
+
+        FILE INCLUSION 
+
+    #include<iostream> <= file inclusion defination
+    
+    syntax :    #include"filename"
+
+############################################################################*/
+
+/*
+   
+ // comments                    <=  documentation section 
+ 
+ #include<iostream>              <= link section     // preprocessor directive
+ #define PI 3.14                 <= defination section //     section
+ 
+ double area(float)              <= globle declaration 
+ 
+ int main()                      <= the main function
+ {
+     //code                      <= program body 
+     
+ }
+ 
+ double area(float radius)          
+ {
+     return PI * radius * radius;   <= subprogram section
+ }
+
+
+*/
+
+
+/*#############################################################################
+
+         EXCEPTION HANDLING  (ERROR)
+       
+       TYPES OF ERRORS : 
+       
+       1. compile time errors
+       
+       2. run time errors (exceptions)
+       
+
+
+##############################################################################*/
+/*
+
+// exception handling (run time error)
+
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int a,b,result;
+    
+    cout<<"program starts  =====>\n\n"<<"enter two values : ";
+    cin>>a>>b;
+    
+    try {
+        if(b == 0) {
+            throw "the values must be non zero. try again.";
+        }
+        result = a/b;
+        cout<<"result : "<<result<<endl;
+    } 
+    catch (const char *msg)
+    {
+       cout<<msg<<endl<<endl; 
+    }
+    
+    cout<<"\n\n<=====  program ends "<<endl;
+    
+    return 0;
+}
+
+
+*/
+// code challenge printing output only as 0 or positive
+
+/*
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+    cout<<"program starts ========>\n\n "<<endl;
+    cout<<"enter the number : ";
+    
+    float n;
+    
+    cin>>n;
+    
+    float result = sqrt(n);
+    try {
+        if(n < 0) {
+            throw "sorry something went wrong. try again.";
+        }
+    cout<<"result : "<<result;
+    } catch (const char *msg) {
+        cout<<msg<<endl<<endl;
+    }
+    cout<<"\n\nprogram ends <======== "<<endl;
+    
+    return 0;
+    
+}
+
+
+
+*/
+
+//code challenge 
+
+
+/*
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+class Employee {
+    
+    private :
+    string phNo;
+    
+    public :
+    string name;
+    
+    void setPhoneNumber(string phoneNumber) {
+        this ->phNo = phoneNumber;
+    }
+    friend void display(Employee);
+    
+};
+
+void display(Employee);
+
+void display(Employee emp) {
+    cout<<"Employee name : "<<emp.name<<"\nphone : "<<emp.phNo<<endl;
+}
+
+
+int main()
+{
+    Employee employee;
+    employee.setPhoneNumber("+91-809362221");
+    employee.name = "Rishi Raj";
+    
+    display(employee);
+    
+    return 0;
+}
+
+
+
+*/
+
+/*####################################################################################
+
+
+    // programming paradigms
+
+
+##############################################################################*/
+
+/*
+
+what are programming paradigms 
+
+programming paradigms are a way to classify programming languages
+based on their features.
+
+object oriented programming           procedural programming 
+
+1. program is divided into small     1. program is divided into small
+parts called objects.                   parts called functions
+
+2. supports inheritance : more       2. no inheritance : limited code
+code reusibility.                       reusbility.
+
+3.function overloading is supported. 3.function overloading is  not 
+                                       supported.
+4. access specifires are supported.  4. access specifires are not 
+                                        suppored.
+5. more secure as it provides data   5. less secure as it does not
+                                        provide proper mechanism   
+                                        to hide data.
+6. data is more important than       6. functions are more important 
+function.                               than data.
+7. ex : c++,java,python,c# etc.      7. ex: c++,c,FORTRAN,pascal,basic.
+
+c++ is hybrid language.
+
+
+*/
+
+
+
+
+
+/*#############################################################################
+
+
+  // difference beetween c and c++
+  
+  
+#############################################################################*/
+  /*
+     c language                                c++ language
+
+ - supports procedural programming        - known as hybrid language because it 
+   paradigm.                                supports both procedural and object 
+                                            oriented programming paradigm.
+ - polymorphism, encapsulation,           - polymorphism, encapsulation,
+   abstraction, and inheritance are         abstraction, and inheritance are
+   not supported.                           supported.
+ - access specifires are not suppoerted.  - supports access specifires & data 
+                                            hiding.
+ - function overloading and default       - function overloading and default
+   parameters are not supported.            parameters are supported.
+ - namespace is not supported.            - namespace is supported.
+ - vertual function and friend function   - virtual fuction and friend function 
+   are not supported.                       are supported.
+ - it contains 32 reserved keywords.      - it contains more than 90+ reserved
+                                            keywords
+ - exceptio handling is not supported     - exceptio handling is not supported.
+ -                                        - c++ is the superset of c.
+ 
+ 
+ 
+ 
+ */
+ 
+
+ 
+ 
+/*#############################################################################
+
+
+     // program flow or program behind 
+     
+     
+#############################################################################*/
+
+/*
+
+program exicution flow :
+
+
+                               source code 
+                                   ||
+                               preprocessor
+                                   ||
+                                compiler
+                                   ||
+                                assembler       
+                                   ||
+                                 linker
+                                   ||
+                                 loader
+                                   ||
+                             program running
+
+
+
+discription    :  
+
+
+
+source code :  my-file or my-file.cpp
+
+
+preprocessor : 
+          - remove comments 
+          - expand preprocessordirectives (macro/file inclusion)
+          
+          - expanded code : myfile.inclusion
+          
+          
+compiler : 
+          - check program for syntax error
+          - if no error found it converts the expanded code into assembly code.
+          - assembly code : my-file.s
+          
+          
+assembler : 
+          - converts assembly code into object code
+          - object code (bytecode/binary code/machine-level code) is 
+            understandeble by computer.
+          - object code : my-file.obj or my-file.o
+          
+          
+linker : 
+          - converts object code to exicutable code.
+          - generate executable file.
+          - exxutable code : my-file.executable
+          
+          
+          
+loader :
+          - loads exicutable file into memory and then exicted 
+            send to the output concol.
+          
+       
+          
+          
+  */        
+          
+          
